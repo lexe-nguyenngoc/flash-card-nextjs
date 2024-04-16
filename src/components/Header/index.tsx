@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <div className={cx("header")}>
       <Link href="/" className={cx("logo")}>
-        LearnLet
+        EasyVocab
       </Link>
     </div>
   );
