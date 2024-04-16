@@ -15,7 +15,7 @@ const cardGroups: CardGroup[] = [
       {
         id: "1",
         word: "a",
-        mean: "Nhỏ, một ít",
+        means: ["Một", "một ít"],
         pronunciation: "",
         category: "",
         type: ["Det", "Pron"]
@@ -23,7 +23,7 @@ const cardGroups: CardGroup[] = [
       {
         id: "2",
         word: "abandon",
-        mean: "Bỏ, từ bỏ",
+        means: ["bỏ", "từ bỏ"],
         pronunciation: "ə'bæn.dən",
         category: "",
         type: ["V"]
@@ -31,7 +31,7 @@ const cardGroups: CardGroup[] = [
       {
         id: "3",
         word: "abandoned",
-        mean: "Bị bỏ rơi, bị ruồng bỏ",
+        means: ["bị bỏ rơi", "bị ruồng bỏ"],
         pronunciation: "ə'bæn.dənd",
         category: "",
         type: ["V"]
