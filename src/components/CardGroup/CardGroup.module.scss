@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+  width: fit-content;
+
+  background-color: #2e3856;
+
+  border-radius: 10px;
+
+  .name {
+    color: white;
+  }
+
+  .word-count {
+    width: fit-content;
+    padding: 2px 10px;
+
+    color: #2e3856;
+    background-color: white;
+
+    border-radius: 5px;
+  }
+}
