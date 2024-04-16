@@ -1,11 +1,11 @@
 "use client";
 import classNames from "classnames/bind";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { FlashCard } from "@/types";
 
-import Card from "../Card";
+import Card, { ICardRef } from "../Card";
 
 import styles from "./FlashCardList.module.scss";
 
@@ -17,8 +17,8 @@ interface IFlashCardList {
 
 const FlashCardList = ({ flashCards }: IFlashCardList) => {
   const [index, setIndex] = useState(0);
-
   const router = useRouter();
+  const inputRef = useRef<(ICardRef | null)[]>([]);
 
   const handleAnswerCorrect = () => {
     if (index === flashCards.length - 1) {
@@ -29,12 +29,19 @@ const FlashCardList = ({ flashCards }: IFlashCardList) => {
     setIndex((prev) => prev + 1);
   };
 
+  useEffect(() => {
+    inputRef.current[index]?.onFocus();
+  }, [index]);
+
   return (
     <div className={cx("wrapper")}>
       {flashCards.map((card, i) => (
         <Card
           key={card.id}
-          className={cx({ inactive: index !== i })}
+          ref={(ref) => {
+            inputRef.current[i] = ref;
+          }}
+          className={cx("card", { active: index === i })}
           data={card}
           onCorrect={handleAnswerCorrect}
         />
