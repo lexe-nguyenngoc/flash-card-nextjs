@@ -24,7 +24,13 @@ const CompleteLesson = ({
   onContinue
 }: ICompleteLesson) => {
   return (
-    <Modal show={show} backdrop placement="top" onClose={onClose}>
+    <Modal
+      show={show}
+      backdrop
+      className={cx("modal")}
+      placement="top"
+      onClose={onClose}
+    >
       <div className={cx("wrapper", type)}>
         <div className={cx("icon")}>
           <AiFillCheckCircle />
