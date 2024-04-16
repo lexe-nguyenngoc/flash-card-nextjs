@@ -31,18 +31,14 @@ const FlashCardList = ({ flashCards }: IFlashCardList) => {
 
   return (
     <div className={cx("wrapper")}>
-      {flashCards.map((card, i) => {
-        console.log({ index, i, card });
-
-        return (
-          <Card
-            key={card.id}
-            className={cx({ inactive: index !== i })}
-            data={card}
-            onCorrect={handleAnswerCorrect}
-          />
-        );
-      })}
+      {flashCards.map((card, i) => (
+        <Card
+          key={card.id}
+          className={cx({ inactive: index !== i })}
+          data={card}
+          onCorrect={handleAnswerCorrect}
+        />
+      ))}
     </div>
   );
 };

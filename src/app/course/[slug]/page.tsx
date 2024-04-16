@@ -19,23 +19,23 @@ const cardGroups: CardGroup[] = [
         pronunciation: "",
         category: "",
         type: ["Det", "Pron"]
+      },
+      {
+        id: "2",
+        word: "abandon",
+        mean: "Bỏ, từ bỏ",
+        pronunciation: "ə'bæn.dən",
+        category: "",
+        type: ["V"]
+      },
+      {
+        id: "3",
+        word: "abandoned",
+        mean: "Bị bỏ rơi, bị ruồng bỏ",
+        pronunciation: "ə'bæn.dənd",
+        category: "",
+        type: ["V"]
       }
-      // {
-      //   id: "2",
-      //   word: "abandon",
-      //   mean: "Bỏ, từ bỏ",
-      //   pronunciation: "ə'bæn.dən",
-      //   category: "",
-      //   type: ["V"]
-      // },
-      // {
-      //   id: "3",
-      //   word: "abandoned",
-      //   mean: "Bị bỏ rơi, bị ruồng bỏ",
-      //   pronunciation: "ə'bæn.dənd",
-      //   category: "",
-      //   type: ["V"]
-      // }
     ]
   }
 ];
