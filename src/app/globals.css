@@ -4,12 +4,22 @@
   margin: 0;
 }
 
+:root {
+  --primary-color: #348ba3;
+  --background-color: #0a092d;
+  --text-color: white;
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
-  background-color: #0a092d;
-  color: white;
+  background-color: var(--background-color);
+  color: var(--text-color);
   font-size: 1.6rem;
+}
+
+svg {
+  vertical-align: middle;
 }

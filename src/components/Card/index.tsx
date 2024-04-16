@@ -1,19 +1,77 @@
-import { FlashCard } from "@/types";
-import React from "react";
-import styles from "./Card.module.scss";
+"use client";
 import classNames from "classnames/bind";
+import { ChangeEvent, FormEvent, useState } from "react";
+import { IoIosSend } from "react-icons/io";
+
+import { FlashCard } from "@/types";
+
+import styles from "./Card.module.scss";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import Box from "../Box";
 
 const cx = classNames.bind(styles);
+enum TypeStatus {
+  CORRECT = "correct",
+  INCORRECT = "incorrect",
+  DEFAULT = "default"
+}
 
 interface ICard {
+  className?: string;
   data: FlashCard;
+  onCorrect(): void;
 }
-const Card = ({ data }: ICard) => {
+const Card = ({ className, data, onCorrect }: ICard) => {
+  const [inputValue, setInputValue] = useState("");
+  const [status, setStatus] = useState<TypeStatus>(TypeStatus.DEFAULT);
+
+  const disabled = status === TypeStatus.CORRECT;
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setStatus(TypeStatus.DEFAULT);
+    setInputValue(e.target.value);
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const match =
+      inputValue.toLowerCase().trim() === data.mean.toLowerCase().trim();
+
+    if (match) {
+      setStatus(TypeStatus.CORRECT);
+      setTimeout(onCorrect, 500);
+      return;
+    }
+
+    setStatus(TypeStatus.INCORRECT);
+  };
+
   return (
-    <div className={cx("wrapper")}>
-      <p className={cx("word-caption")}>Word</p>
-      <h3 className={cx("word")}>{data.word}</h3>
-    </div>
+    <Box className={cx("wrapper", className)}>
+      <>
+        <p className={cx("word-caption")}>Word</p>
+        <h3 className={cx("word")}>{data.word}</h3>
+
+        <form onSubmit={handleSubmit} className={cx("form")}>
+          <input
+            type="text"
+            placeholder="Type here"
+            value={inputValue}
+            onChange={handleInputChange}
+            className={cx("form-control", status)}
+            disabled={disabled}
+          />
+          <button type="submit" className={cx("form-btn")} disabled={disabled}>
+            {status === TypeStatus.CORRECT ? (
+              <AiOutlineLoading3Quarters className={cx("animate")} />
+            ) : (
+              <IoIosSend />
+            )}
+          </button>
+        </form>
+      </>
+    </Box>
   );
 };
 

@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
 import classNames from "classnames/bind";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import { FlashCard } from "@/types";
 
 import Card from "../Card";
-import Box from "../Box";
 
 import styles from "./FlashCardList.module.scss";
 
@@ -16,12 +16,33 @@ interface IFlashCardList {
 }
 
 const FlashCardList = ({ flashCards }: IFlashCardList) => {
-  const [word, setWord] = useState(flashCards[0]);
+  const [index, setIndex] = useState(0);
+
+  const router = useRouter();
+
+  const handleAnswerCorrect = () => {
+    if (index === flashCards.length - 1) {
+      console.log("redirect");
+      router.push("/");
+    }
+
+    setIndex((prev) => prev + 1);
+  };
+
   return (
     <div className={cx("wrapper")}>
-      <Box>
-        <Card data={word} />
-      </Box>
+      {flashCards.map((card, i) => {
+        console.log({ index, i, card });
+
+        return (
+          <Card
+            key={card.id}
+            className={cx({ inactive: index !== i })}
+            data={card}
+            onCorrect={handleAnswerCorrect}
+          />
+        );
+      })}
     </div>
   );
 };
