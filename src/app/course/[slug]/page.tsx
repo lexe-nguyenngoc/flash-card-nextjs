@@ -1,6 +1,13 @@
-import FlashCardList from "@/components/FlashCardList";
-import { CardGroup } from "@/types";
 import { redirect } from "next/navigation";
+import classNames from "classnames/bind";
+
+import { CardGroup } from "@/types";
+
+import FlashCardList from "@/components/FlashCardList";
+
+import styles from "./page.module.scss";
+
+const cx = classNames.bind(styles);
 
 interface ICourseDetail {
   readonly params: { slug: string };

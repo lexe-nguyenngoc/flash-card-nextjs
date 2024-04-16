@@ -1,8 +1,9 @@
 .wrapper {
-  width: 840px;
-  margin: 0 auto;
-  height: 300px;
   position: relative;
+  width: 100%;
+  max-width: 840px;
+  height: 300px;
+  margin: 0 auto;
 }
 
 .card {
@@ -13,6 +14,7 @@
   opacity: 0;
   transition: all linear 0.25s;
   transform: translateY(-50%);
+  margin: 0 16px;
 
   &.active {
     opacity: 1;

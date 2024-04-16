@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 
 import { FlashCard } from "@/types";
 
+import CompleteLesson from "@/components/alert/CompleteLesson";
+
 import Card, { ICardRef } from "../Card";
 
 import styles from "./FlashCardList.module.scss";
@@ -19,11 +21,20 @@ const FlashCardList = ({ flashCards }: IFlashCardList) => {
   const [index, setIndex] = useState(0);
   const router = useRouter();
   const inputRef = useRef<(ICardRef | null)[]>([]);
+  const [isComplete, setIsComplete] = useState<boolean>(false);
+
+  const handleContinueModal = () => {
+    setIsComplete(false);
+
+    setTimeout(() => {
+      router.push("/");
+    }, 250);
+  };
 
   const handleAnswerCorrect = () => {
     if (index === flashCards.length - 1) {
-      console.log("redirect");
-      router.push("/");
+      setIsComplete(true);
+      return;
     }
 
     setIndex((prev) => prev + 1);
@@ -46,6 +57,13 @@ const FlashCardList = ({ flashCards }: IFlashCardList) => {
           onCorrect={handleAnswerCorrect}
         />
       ))}
+
+      <CompleteLesson
+        show={isComplete}
+        message="Great! You have completed this lesson!"
+        onClose={handleContinueModal}
+        onContinue={handleContinueModal}
+      />
     </div>
   );
 };

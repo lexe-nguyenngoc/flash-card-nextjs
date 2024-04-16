@@ -8,6 +8,14 @@
   --primary-color: #348ba3;
   --background-color: #0a092d;
   --text-color: white;
+
+  /* Modal */
+  --background-modal-color: #ffffff;
+  --text-modal-color: #000;
+
+  /* Alert */
+  --success-color: #3bb979;
+  --failed-color: #fd5765;
 }
 
 html {
