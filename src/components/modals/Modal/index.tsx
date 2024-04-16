@@ -12,6 +12,7 @@ interface IModal {
   show: boolean;
   backdrop?: boolean;
   placement?: "top" | "center";
+  className?: string;
 
   onClose: () => void;
 }
@@ -20,6 +21,7 @@ const Modal = ({
   children,
   show,
   backdrop,
+  className,
   placement = "center",
   onClose
 }: IModal) => {
@@ -40,7 +42,7 @@ const Modal = ({
   return createPortal(
     <div>
       <div
-        className={cx("wrapper", `placement-${placement}`, {
+        className={cx(className, "wrapper", `placement-${placement}`, {
           show: show
         })}
       >
