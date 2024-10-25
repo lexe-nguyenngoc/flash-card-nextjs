@@ -11,7 +11,7 @@ import styles from "./page.module.scss";
 const cx = classNames.bind(styles);
 
 export default async function Home() {
-  const folders = await folderApi.getFolder();
+  const folders = await folderApi.getFolders();
 
   return (
     <main className={cx("wrapper")}>

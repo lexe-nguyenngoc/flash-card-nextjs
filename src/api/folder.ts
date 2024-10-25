@@ -1,6 +1,6 @@
-import { IFolder } from "@/types/folder";
+import { IFolder, IFolderDetail } from "@/types/folder";
 
-const getFolder = async (): Promise<IFolder[]> => {
+const getFolders = async (): Promise<IFolder[]> => {
   const folders: IFolder[] = [
     {
       id: "a",
@@ -25,8 +25,40 @@ const getFolder = async (): Promise<IFolder[]> => {
   return folders;
 };
 
+const getFolderDetail = async (slug: string): Promise<IFolderDetail> => {
+  return {
+    id: "a",
+    name: "Folder Name 1",
+    latestUpdateDate: Date.now(),
+    lessons: [
+      {
+        id: "1",
+        name: "lesson 1",
+        slug: "lesson-1",
+        amountTerm: 30,
+        author: "Lexe"
+      },
+      {
+        id: "2",
+        name: "lesson 1",
+        slug: "lesson-1",
+        amountTerm: 1,
+        author: "Lexe"
+      },
+      {
+        id: "3",
+        name: "lesson 1",
+        slug: "lesson-1",
+        amountTerm: 30,
+        author: "Lexe"
+      }
+    ]
+  };
+};
+
 const folderApi = {
-  getFolder
+  getFolders,
+  getFolderDetail
 };
 
 export default folderApi;

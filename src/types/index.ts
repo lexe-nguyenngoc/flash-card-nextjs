@@ -15,3 +15,5 @@ export interface CardGroup {
   words: FlashCard[];
   slug: string;
 }
+
+export type TDate = string | number | Date;
