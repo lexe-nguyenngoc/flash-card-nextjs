@@ -1,0 +1,45 @@
+.folder {
+  position: relative;
+  width: 100%;
+  padding: 12px;
+
+  background-color: var(--primary-02-color);
+
+  border-radius: var(--border-radius);
+  text-decoration: none;
+
+  &__amount {
+    margin-bottom: 4px;
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: var(--text-color);
+  }
+
+  &__name {
+    text-transform: uppercase;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    display: block;
+    width: 0%;
+    height: 2px;
+
+    background-color: var(--border-hover-color);
+
+    transition: all linear 0.25s;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+}
