@@ -5,9 +5,17 @@
 }
 
 :root {
-  --primary-color: #348ba3;
+  /* Primary Color */
+  --primary-01-color: #0a092d;
+  --primary-02-color: #2e3856;
+  --primary-03-color: #1282a2;
+
+  /* Theme Color */
+  --black-color: #262626;
+  --text-color: #fafafa;
   --background-color: #0a092d;
-  --text-color: white;
+  --border-color: #aeb2a6;
+  --border-hover-color: #fafafa;
 
   /* Modal */
   --background-modal-color: #ffffff;
@@ -16,6 +24,8 @@
   /* Alert */
   --success-color: #3bb979;
   --failed-color: #fd5765;
+
+  --border-radius: 5px;
 }
 
 html {
