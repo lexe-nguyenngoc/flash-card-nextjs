@@ -1,0 +1,11 @@
+@mixin flex-center($justifyContent: unset) {
+  display: flex;
+  align-items: center;
+  justify-content: $justifyContent;
+}
+
+@mixin reset-btn {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}

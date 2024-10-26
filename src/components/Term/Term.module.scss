@@ -1,0 +1,13 @@
+@import "@/assets/styles/mixin";
+
+.term {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 3fr 2fr;
+  padding: 12px;
+
+  background-color: var(--primary-02-color);
+  border-radius: var(--border-radius);
+
+  &__word {
+  }
+}

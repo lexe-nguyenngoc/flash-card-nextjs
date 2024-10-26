@@ -8,11 +8,11 @@ const cx = classNames.bind(styles);
 
 const Header = () => {
   return (
-    <div className={cx("header")}>
+    <header className={cx("header")}>
       <Link href="/" className={cx("logo")}>
         EasyVocab
       </Link>
-    </div>
+    </header>
   );
 };
 

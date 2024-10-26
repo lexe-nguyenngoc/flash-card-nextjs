@@ -1,0 +1,13 @@
+@import "@/assets/styles/mixin";
+
+.lesson {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &__folder {
+    @include flex-center;
+    gap: 6px;
+    margin-bottom: 2px;
+  }
+}

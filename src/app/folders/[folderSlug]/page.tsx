@@ -20,20 +20,18 @@ export interface IDetailFolderPage {
 export default async function DetailFolderPage({ params }: IDetailFolderPage) {
   const folder = await folderApi.getFolderDetail(params.folderSlug);
   return (
-    <main className={cx("wrapper")}>
-      <Container>
-        <Typography tag="h1" size="medium" className={cx("wrapper__heading")}>
-          {folder.name}
-        </Typography>
+    <Container className={cx("wrapper")}>
+      <Typography tag="h1" size="medium" className={cx("wrapper__heading")}>
+        {folder.name}
+      </Typography>
 
-        <UpdatedOn date={folder.latestUpdateDate} />
+      <UpdatedOn date={folder.latestUpdateDate} />
 
-        <div className={cx("wrapper__lesson-list")}>
-          {folder.lessons.map((lesson) => (
-            <Lesson key={lesson.id} lesson={lesson} />
-          ))}
-        </div>
-      </Container>
-    </main>
+      <div className={cx("wrapper__lesson-list")}>
+        {folder.lessons.map((lesson) => (
+          <Lesson key={lesson.id} lesson={lesson} />
+        ))}
+      </div>
+    </Container>
   );
 }
