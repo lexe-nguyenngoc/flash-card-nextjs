@@ -1,0 +1,31 @@
+.typography {
+  color: var(--text-color);
+
+  &.big {
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  &.medium {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  &.regular {
+    font-size: 12px;
+  }
+
+  &.regular-bold {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  &.small {
+    font-size: 10px;
+  }
+
+  &.small-bold {
+    font-size: 10px;
+    font-weight: bold;
+  }
+}

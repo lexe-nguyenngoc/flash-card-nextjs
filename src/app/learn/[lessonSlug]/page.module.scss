@@ -1,0 +1,20 @@
+@import "@/assets/styles/mixin";
+
+.learn {
+  &__header {
+    @include flex-center(center);
+    height: 80px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  &__close-btn {
+    @include reset-btn;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+}

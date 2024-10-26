@@ -1,0 +1,22 @@
+@import "@/assets/styles/mixin";
+
+.activities {
+  &__btn-group {
+    @include flex-center;
+
+    gap: 10px;
+
+    margin-top: 12px;
+  }
+
+  &__btn {
+    @include reset-btn;
+
+    padding: 10px;
+
+    background-color: var(--primary-02-color);
+
+    border-radius: var(--border-radius);
+    cursor: pointer;
+  }
+}

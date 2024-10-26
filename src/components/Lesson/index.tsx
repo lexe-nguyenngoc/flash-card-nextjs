@@ -1,20 +1,34 @@
 import React from "react";
+import Link from "next/link";
+import classNames from "classnames/bind";
+
+import { ILesson } from "@/types/lesson";
+
+import Typography from "@/components/Typography";
+
+import LessonIcon from "@/assets/icons/lesson.svg";
 
 import styles from "./Lesson.module.scss";
-import Link from "next/link";
+import utils from "@/utils";
 
-interface ILesson {
-  name: string;
-  slug: string;
-  wordsCount: number;
+const cx = classNames.bind(styles);
+
+interface ILessonProps {
+  lesson: ILesson;
 }
 
-const Lesson = ({ name, wordsCount, slug }: ILesson) => {
+const Lesson = ({ lesson }: ILessonProps) => {
   return (
-    <Link href={`/course/${slug}`} className={styles.wrapper}>
-      <h3 className={styles.name}>{name}</h3>
-      <div className={styles["word-count"]}>
-        {wordsCount} {wordsCount > 1 ? "words" : "word"}
+    <Link href={`/lessons/${lesson.slug}`} className={cx("wrapper")}>
+      <LessonIcon />
+      <div>
+        <Typography className={cx("wrapper__name")} size="regular-bold">
+          {lesson.name}
+        </Typography>
+        <Typography className={cx("wrapper__description")} size="regular-bold">
+          Lesson - {utils.pluralize("term", lesson.amountTerm)} - author:{" "}
+          {lesson.author}
+        </Typography>
       </div>
     </Link>
   );

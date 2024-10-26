@@ -1,26 +1,21 @@
 .wrapper {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 16px;
-  width: fit-content;
-
-  background-color: #2e3856;
+  gap: 12px;
+  padding: 12px;
 
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
+  transition: all linear 0.25s;
 
-  .name {
-    color: white;
+  &:hover {
+    background-color: var(--primary-02-color);
   }
 
-  .word-count {
-    width: fit-content;
-    padding: 2px 10px;
+  &__name {
+    text-transform: uppercase;
+  }
 
-    color: #2e3856;
-    background-color: white;
-
-    border-radius: 5px;
+  &__description {
   }
 }

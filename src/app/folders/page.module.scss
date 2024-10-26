@@ -1,0 +1,11 @@
+.wrapper {
+  &__heading {
+    margin-bottom: 24px;
+  }
+
+  &__folder-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}

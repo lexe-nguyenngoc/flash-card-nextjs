@@ -1,0 +1,73 @@
+@import "@/assets/styles/mixin";
+
+.input-answer {
+  padding: 12px 14px;
+
+  background-color: var(--primary-02-color);
+
+  border-radius: var(--border-radius);
+
+  &__word {
+    @include flex-center(center);
+
+    height: 500px;
+  }
+
+  &__form {
+    margin-top: 12px;
+  }
+
+  &__control {
+    position: relative;
+
+    border-radius: var(--border-radius);
+
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 0px;
+      width: 100%;
+
+      background-color: var(--border-hover-color);
+
+      transition: height linear 0.25s;
+    }
+
+    &:focus-within::before {
+      height: 2px;
+    }
+
+    input {
+      width: 100%;
+      padding: 16px;
+
+      background-color: var(--primary-01-color);
+      color: var(--text-color);
+
+      font-size: 14px;
+
+      border: none;
+      outline: none;
+    }
+  }
+
+  &__btn {
+    @include flex-center(center);
+    @include reset-btn;
+
+    margin-left: auto;
+    margin-top: 12px;
+    padding: 12px 24px;
+
+    background-color: var(--primary-03-color);
+    color: var(--text-color);
+
+    border-radius: var(--border-radius);
+    cursor: pointer;
+  }
+}

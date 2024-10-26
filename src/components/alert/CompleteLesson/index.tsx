@@ -1,9 +1,8 @@
-import React from "react";
 import classNames from "classnames/bind";
 
-import styles from "./CompleteLesson.module.scss";
-import Modal, { ModalHeader } from "@/components/modals";
+import Modal from "@/components/modals";
 import { AiFillCheckCircle } from "react-icons/ai";
+import styles from "./CompleteLesson.module.scss";
 
 const cx = classNames.bind(styles);
 
